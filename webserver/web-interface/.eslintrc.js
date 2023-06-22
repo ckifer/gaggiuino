@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'react-app',
+    'react-app/jest',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -43,12 +45,14 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          '**/*.stories.*',
-          '**/.storybook/**/*.*',
+          '!./src/setupTests.ts',
         ],
         peerDependencies: true,
       },
     ],
+    // allow JSX with any file extension
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
   },
   ignorePatterns: ['build/*.js', 'scripts/*.js', 'config/*.js'],
 };
